@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   color: white;
-  background: url("../images/minions.jpg")
+  background: url("../images/minions.jpg");
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #d8b362;
 }
 
@@ -54,6 +55,10 @@ button {
   background-color: #42f471;
 }
 
+.error {
+  background-color: red;
+}
+
 .operations {
   margin: 0 auto;
   padding: 5px;
@@ -65,7 +70,7 @@ button {
 
 .character-info {
   position: relative;
-  width: 40%;
+  width: 50%;
   margin: 10px;
   padding: 10px;
   text-align: left;
@@ -104,4 +109,8 @@ button {
 
 .submit-button {
   margin: 10px 0 0 120px;
+}
+
+.character-display {
+  color: #d8b362;
 }

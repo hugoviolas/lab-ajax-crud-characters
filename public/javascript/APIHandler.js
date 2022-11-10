@@ -1,25 +1,46 @@
 class APIHandler {
-  constructor (baseUrl) {
+  constructor(baseUrl) {
     this.BASE_URL = baseUrl;
   }
 
-  getFullList () {
-
+  async getFullList() {
+    const { data } = await axios.get(this.BASE_URL + "/characters");
+    return data;
   }
 
-  getOneRegister () {
-
+  async getOneRegister(id) {
+    const { data } = await axios.get(this.BASE_URL + `/characters/${id}`);
+    return data;
   }
 
-  createOneRegister () {
-
+  async createOneRegister(name, occupation, weapon, cartoon) {
+    try {
+      console.log(name, occupation, weapon, cartoon);
+      if (!name || !occupation || !weapon) {
+        return;
+      }
+      const newCharacter = { name, occupation, weapon, cartoon };
+      const { data } = await axios.post(
+        this.BASE_URL + "/characters",
+        newCharacter
+      );
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  updateOneRegister () {
-
+  async updateOneRegister(id, name, occupation, weapon, cartoon) {
+    const updatedCharacter = { id, name, occupation, weapon, cartoon };
+    const { data } = await axios.patch(
+      this.BASE_URL + `/characters/${id}`,
+      updatedCharacter
+    );
+    return data;
   }
 
-  deleteOneRegister () {
-
+  async deleteOneRegister(id) {
+    const { data } = await axios.delete(this.BASE_URL + `/characters/${id}`);
+    return true;
   }
 }
